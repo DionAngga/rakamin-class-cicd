@@ -2,7 +2,7 @@ FROM golang:alpine AS builder
 
 RUN mkdir /app
 COPY . /app
-RUN make build -v -o main .
+RUN go build -v -o main .
 
 FROM alpine:latest
 RUN mkdir /app
