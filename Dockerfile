@@ -1,10 +1,11 @@
 FROM golang:alpine AS builder
 
-WORKDIR /app-be
-COPY . .
-RUN go build -o /rakamin-class-cicd-master
+RUN mkdir /app
+COPY . /app
+RUN make build -v -o main .
 
 FROM alpine:latest
-COPY --from=builder /rakamin-class-cicd-master /rakamin-class-cicd-master
-
-CMD ["/rakamin-class-cicd-master"]
+RUN mkdir /app
+WORKDIR /app
+COPY --from=builder /app/main /app/
+CMD ["/app/main"]
