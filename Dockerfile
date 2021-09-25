@@ -1,6 +1,6 @@
 FROM golang:alpine AS builder
-
 RUN mkdir /app
+WORKDIR /app
 COPY . /app
 RUN go build -v -o main .
 
