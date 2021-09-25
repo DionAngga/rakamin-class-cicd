@@ -29,7 +29,7 @@
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   docker-push:
@@ -46,4 +46,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: user/app:latest
+          tags: dionangga/app:latest
